@@ -24,16 +24,16 @@ public class CallBackTest {
     }
 
     @BeforeEach
-    void setUp() {
+    void setupTest() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
+        driver.get("http://localhost:9999");
     }
-
     @AfterEach
-    void tearDown() {
+    void teardown() {
         driver.quit();
         driver = null;
     }
